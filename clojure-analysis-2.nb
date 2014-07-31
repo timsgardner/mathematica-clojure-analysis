@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[    184421,       5118]
-NotebookOptionsPosition[    161454,       4368]
-NotebookOutlinePosition[    162006,       4388]
-CellTagsIndexPosition[    161963,       4385]
+NotebookDataLength[    185109,       5138]
+NotebookOptionsPosition[    162073,       4386]
+NotebookOutlinePosition[    162625,       4406]
+CellTagsIndexPosition[    162582,       4403]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -4018,7 +4018,25 @@ Cell[BoxData[
  InitializationCell->True,
  CellChangeTimes->{{3.615777855374001*^9, 3.6157778707027493`*^9}, {
   3.615777974293791*^9, 3.6157780535478573`*^9}, {3.615778495582624*^9, 
-  3.615778495930047*^9}}]
+  3.615778495930047*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"graphDifference2", "[", 
+   RowBox[{"gAll_Graph", ",", " ", "gs___Graph"}], "]"}], ":=", 
+  "\[IndentingNewLine]", 
+  RowBox[{"Subgraph", "[", 
+   RowBox[{"gAll", ",", 
+    RowBox[{"Complement", "[", 
+     RowBox[{
+      RowBox[{"VertexList", "[", "gAll", "]"}], ",", " ", 
+      RowBox[{"Sequence", "@@", 
+       RowBox[{"(", 
+        RowBox[{"VertexList", "/@", 
+         RowBox[{"{", "gs", "}"}]}], ")"}]}]}], "]"}]}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.615779116483562*^9, 3.615779233067151*^9}, {
+  3.615779395979979*^9, 3.61577939845961*^9}}]
 }, Open  ]]
 }, Open  ]],
 
@@ -5096,29 +5114,31 @@ Cell[CellGroupData[{
 Cell[147775, 3997, 126, 2, 44, "Subsection",
  InitializationCell->True],
 Cell[147904, 4001, 659, 19, 49, "Input",
+ InitializationCell->True],
+Cell[148566, 4022, 616, 16, 53, "Input",
  InitializationCell->True]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[148612, 4026, 154, 2, 80, "Section"],
-Cell[148769, 4030, 350, 8, 71, "Input"],
-Cell[149122, 4040, 1228, 30, 155, "Input"],
-Cell[150353, 4072, 1063, 23, 74, "Input"],
-Cell[151419, 4097, 94, 1, 30, "Input"],
-Cell[151516, 4100, 1417, 33, 116, "Input"],
-Cell[152936, 4135, 1484, 36, 155, "Input"],
-Cell[154423, 4173, 302, 6, 49, "Input"],
-Cell[154728, 4181, 1779, 46, 214, "Input"],
-Cell[156510, 4229, 92, 1, 30, "Input"],
-Cell[156605, 4232, 473, 12, 33, "Input"],
-Cell[157081, 4246, 347, 8, 31, "Input"],
-Cell[157431, 4256, 225, 5, 33, "Input"],
-Cell[157659, 4263, 815, 21, 51, "Input"],
-Cell[158477, 4286, 119, 2, 31, "Input"],
-Cell[158599, 4290, 419, 11, 33, "Input"],
-Cell[159021, 4303, 116, 2, 31, "Input"],
-Cell[159140, 4307, 327, 9, 33, "Input"],
-Cell[159470, 4318, 1968, 47, 225, "Input"]
+Cell[149231, 4044, 154, 2, 80, "Section"],
+Cell[149388, 4048, 350, 8, 71, "Input"],
+Cell[149741, 4058, 1228, 30, 155, "Input"],
+Cell[150972, 4090, 1063, 23, 74, "Input"],
+Cell[152038, 4115, 94, 1, 30, "Input"],
+Cell[152135, 4118, 1417, 33, 116, "Input"],
+Cell[153555, 4153, 1484, 36, 155, "Input"],
+Cell[155042, 4191, 302, 6, 49, "Input"],
+Cell[155347, 4199, 1779, 46, 214, "Input"],
+Cell[157129, 4247, 92, 1, 30, "Input"],
+Cell[157224, 4250, 473, 12, 33, "Input"],
+Cell[157700, 4264, 347, 8, 31, "Input"],
+Cell[158050, 4274, 225, 5, 33, "Input"],
+Cell[158278, 4281, 815, 21, 51, "Input"],
+Cell[159096, 4304, 119, 2, 31, "Input"],
+Cell[159218, 4308, 419, 11, 33, "Input"],
+Cell[159640, 4321, 116, 2, 31, "Input"],
+Cell[159759, 4325, 327, 9, 33, "Input"],
+Cell[160089, 4336, 1968, 47, 225, "Input"]
 }, Closed]]
 }
 ]
