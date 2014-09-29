@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[    195581,       5415]
-NotebookOptionsPosition[    171341,       4624]
-NotebookOutlinePosition[    171893,       4644]
-CellTagsIndexPosition[    171850,       4641]
+NotebookDataLength[    198386,       5501]
+NotebookOptionsPosition[    173696,       4696]
+NotebookOutlinePosition[    174248,       4716]
+CellTagsIndexPosition[    174205,       4713]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -3659,7 +3659,7 @@ Cell[BoxData[
  CellChangeTimes->{{3.6107407319944677`*^9, 3.610740734136409*^9}, {
   3.6107407887181396`*^9, 3.610740818436824*^9}}]
 }, Open  ]]
-}, Open  ]],
+}, Closed]],
 
 Cell[CellGroupData[{
 
@@ -4275,8 +4275,80 @@ Cell[BoxData[
  InitializationCell->True,
  CellChangeTimes->{{3.615781626685569*^9, 3.61578174053032*^9}, {
   3.615781813566596*^9, 3.615781824294341*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Top Bottom Loop", "Subsection",
+ InitializationCell->True,
+ CellChangeTimes->{{3.6209919737761097`*^9, 3.6209919753120127`*^9}, {
+  3.6209920247422132`*^9, 3.620992027452961*^9}, {3.6209920767924023`*^9, 
+  3.620992079639142*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"graphTops", "[", "g_Graph", "]"}], ":=", 
+  RowBox[{"Pick", "[", 
+   RowBox[{
+    RowBox[{"VertexList", "[", "g", "]"}], ",", 
+    RowBox[{"VertexInDegree", "[", "g", "]"}], ",", "0"}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.620961349824486*^9, 3.620961551814062*^9}, {
+  3.620961641190819*^9, 3.620961642718313*^9}, {3.620991905080041*^9, 
+  3.62099190658295*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"graphBottoms", "[", "g_Graph", "]"}], ":=", 
+  RowBox[{"Pick", "[", 
+   RowBox[{
+    RowBox[{"VertexList", "[", "g", "]"}], ",", 
+    RowBox[{"VertexOutDegree", "[", "g", "]"}], ",", "0"}], "]"}]}]], "Input",\
+
+ InitializationCell->True,
+ CellChangeTimes->{{3.6209616652003813`*^9, 3.620961679570929*^9}, {
+  3.620991901960574*^9, 3.620991903342812*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"graphLoops", "[", "g_Graph", "]"}], ":=", 
+  RowBox[{"Select", "[", 
+   RowBox[{
+    RowBox[{"ConnectedComponents", "[", "g", "]"}], ",", 
+    RowBox[{
+     RowBox[{"1", "<", 
+      RowBox[{"Length", "[", "#", "]"}]}], "&"}]}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.6209619223584337`*^9, 3.620961958613603*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"loopSubgraphs", "[", "g_Graph", "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Subgraph", "[", 
+     RowBox[{"g", ",", "#"}], "]"}], "&"}], "/@", 
+   RowBox[{"graphLoops", "[", "g", "]"}]}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.620962006952075*^9, 3.620962039992837*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"graphTopBottomLoopHighlight", "[", "g_Graph", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"HighlightGraph", "[", 
+    RowBox[{"g", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"graphTops", "[", "g", "]"}], ",", 
+       RowBox[{"graphBottoms", "[", "g", "]"}], ",", 
+       RowBox[{"Sequence", "@@", 
+        RowBox[{"loopSubgraphs", "[", "g", "]"}]}]}], "}"}]}], "]"}], "//", 
+   "ornamentProject"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.620962379052538*^9, 3.6209624074203*^9}}]
 }, Open  ]]
-}, Closed]],
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -5271,9 +5343,9 @@ Cell[136025, 3641, 291, 7, 31, "Input",
 Cell[136319, 3650, 345, 9, 31, "Input",
  InitializationCell->True]
 }, Open  ]]
-}, Open  ]],
+}, Closed]],
 Cell[CellGroupData[{
-Cell[136713, 3665, 125, 2, 80, "Section",
+Cell[136713, 3665, 125, 2, 50, "Section",
  InitializationCell->True],
 Cell[136841, 3669, 747, 13, 163, "Text",
  InitializationCell->True],
@@ -5394,28 +5466,42 @@ Cell[157424, 4251, 191, 3, 44, "Subsection",
  InitializationCell->True],
 Cell[157618, 4256, 832, 20, 85, "Input",
  InitializationCell->True]
-}, Open  ]]
-}, Closed]],
+}, Open  ]],
 Cell[CellGroupData[{
-Cell[158499, 4282, 154, 2, 50, "Section"],
-Cell[158656, 4286, 350, 8, 71, "Input"],
-Cell[159009, 4296, 1228, 30, 155, "Input"],
-Cell[160240, 4328, 1063, 23, 74, "Input"],
-Cell[161306, 4353, 94, 1, 30, "Input"],
-Cell[161403, 4356, 1417, 33, 116, "Input"],
-Cell[162823, 4391, 1484, 36, 155, "Input"],
-Cell[164310, 4429, 302, 6, 49, "Input"],
-Cell[164615, 4437, 1779, 46, 214, "Input"],
-Cell[166397, 4485, 92, 1, 30, "Input"],
-Cell[166492, 4488, 473, 12, 33, "Input"],
-Cell[166968, 4502, 347, 8, 31, "Input"],
-Cell[167318, 4512, 225, 5, 33, "Input"],
-Cell[167546, 4519, 815, 21, 51, "Input"],
-Cell[168364, 4542, 119, 2, 31, "Input"],
-Cell[168486, 4546, 419, 11, 33, "Input"],
-Cell[168908, 4559, 116, 2, 31, "Input"],
-Cell[169027, 4563, 327, 9, 33, "Input"],
-Cell[169357, 4574, 1968, 47, 225, "Input"]
+Cell[158487, 4281, 236, 4, 44, "Subsection",
+ InitializationCell->True],
+Cell[158726, 4287, 429, 10, 31, "Input",
+ InitializationCell->True],
+Cell[159158, 4299, 389, 10, 31, "Input",
+ InitializationCell->True],
+Cell[159550, 4311, 376, 10, 31, "Input",
+ InitializationCell->True],
+Cell[159929, 4323, 333, 9, 31, "Input",
+ InitializationCell->True],
+Cell[160265, 4334, 540, 14, 51, "Input",
+ InitializationCell->True]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[160854, 4354, 154, 2, 80, "Section"],
+Cell[161011, 4358, 350, 8, 71, "Input"],
+Cell[161364, 4368, 1228, 30, 155, "Input"],
+Cell[162595, 4400, 1063, 23, 74, "Input"],
+Cell[163661, 4425, 94, 1, 30, "Input"],
+Cell[163758, 4428, 1417, 33, 116, "Input"],
+Cell[165178, 4463, 1484, 36, 155, "Input"],
+Cell[166665, 4501, 302, 6, 49, "Input"],
+Cell[166970, 4509, 1779, 46, 214, "Input"],
+Cell[168752, 4557, 92, 1, 30, "Input"],
+Cell[168847, 4560, 473, 12, 33, "Input"],
+Cell[169323, 4574, 347, 8, 31, "Input"],
+Cell[169673, 4584, 225, 5, 33, "Input"],
+Cell[169901, 4591, 815, 21, 51, "Input"],
+Cell[170719, 4614, 119, 2, 31, "Input"],
+Cell[170841, 4618, 419, 11, 33, "Input"],
+Cell[171263, 4631, 116, 2, 31, "Input"],
+Cell[171382, 4635, 327, 9, 33, "Input"],
+Cell[171712, 4646, 1968, 47, 225, "Input"]
 }, Closed]]
 }
 ]
